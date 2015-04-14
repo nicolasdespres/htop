@@ -34,7 +34,7 @@ UptimeMeter.h TraceScreen.h UsersTable.h Vector.h Process.h AffinityPanel.h \
 HostnameMeter.h OpenFilesScreen.h Affinity.h IncSet.h Action.h
 
 if HTOP_LINUX
-htop_CFLAGS += -rdynamic 
+htop_CFLAGS += -rdynamic
 myhtopplatsources = linux/Platform.c linux/IOPriorityPanel.c linux/IOPriority.c \
 linux/LinuxProcess.c linux/LinuxProcessList.c linux/LinuxCRT.c linux/Battery.c
 
@@ -48,6 +48,19 @@ freebsd/FreeBSDProcess.c freebsd/FreeBSDCRT.c freebsd/Battery.c
 
 myhtopplatheaders = freebsd/Platform.h freebsd/FreeBSDProcessList.h \
 freebsd/FreeBSDProcess.h freebsd/FreeBSDCRT.h freebsd/Battery.h
+endif
+
+if HTOP_DARWIN
+myhtopplatsources = \
+	darwin/Platform.c \
+	darwin/Battery.c \
+	darwin/DarwinProcess.c \
+	darwin/DarwinProcessList.c
+myhtopplatheaders = \
+	darwin/Platform.h \
+	darwin/Battery.h \
+	darwin/DarwinProcess.h \
+	darwin/DarwinProcessList.h
 endif
 
 if HTOP_UNSUPPORTED
